@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Game Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎮 My Game Tracker</h1>
+    <nav>
+      <button class="tab-btn active" data-tab="completed">Completed</button>
+      <button class="tab-btn" data-tab="backlog">Backlog</button>
+      <button class="tab-btn" data-tab="recommendation">Recommendations</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Add game form -->
+    <section id="add-form-section">
+      <h2>Add a Game</h2>
+      <form id="add-form">
+        <input type="text" id="title" placeholder="Game title" required />
+        <select id="status">
+          <option value="completed">Completed</option>
+          <option value="backlog">Backlog</option>
+          <option value="recommendation">Recommendation</option>
+        </select>
+        <input type="text" id="genre" placeholder="Genre(s), comma separated" />
+        <input type="number" id="rating" placeholder="Rating (1-5)" min="1" max="5" />
+        <input type="text" id="cover_image_url" placeholder="Cover image URL (optional)" />
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <button type="submit">Add Game</button>
+      </form>
+    </section>
+
+    <!-- Completed tab -->
+    <section class="tab-content" id="completed-tab">
+      <h2>Completed Games</h2>
+      <div class="game-grid" id="completed-grid"></div>
+    </section>
+
+    <!-- Backlog tab -->
+    <section class="tab-content hidden" id="backlog-tab">
+      <h2>Backlog</h2>
+      <div class="game-grid" id="backlog-grid"></div>
+    </section>
+
+    <!-- Recommendations tab -->
+    <section class="tab-content hidden" id="recommendation-tab">
+      <h2>Recommendations</h2>
+      <button id="get-auto-recs">Suggest games for me (via RAWG)</button>
+      <div id="auto-rec-status"></div>
+      <div class="game-grid" id="auto-rec-grid"></div>
+
+      <h3>Your saved recommendations</h3>
+      <div class="game-grid" id="manual-rec-grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
